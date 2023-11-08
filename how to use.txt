@@ -1,0 +1,12 @@
+install node.js https://nodejs.org/en/
+
+open terminal at the current directory (inside folder 'spamgen'):
+npm install
+Node pages/api/mail.js
+npm run dev
+
+click login to gmail, verify account
+type in name of professor
+click generate template, may take time
+fill in address and last name
+click send, send is successful only if there is a success message on screen
