@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
-import Modal from './Modal'; // Import the Modal component...
+import Modal from './Modal'; // Import the Modal component
 
 export default function Home() {
 
