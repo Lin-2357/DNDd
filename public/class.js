@@ -1,3 +1,5 @@
+import {artificer} from '/artificer.js';
+
 const barbarian = {
 	"class": [
 		{
@@ -3464,89 +3466,23 @@ const wizard = {
 					"int": 13
 				}
 			},
-			"classTableGroups": [
+			"classTableGroups":[
 				{
 					"colLabels": [
-						"{@filter Cantrips Known|spells|level=0|class=Wizard}"
+						"Cantrips Known",
+						"1st spell slot",
+						"2nd spell slot",
+						"3rd spell slot",
+						"4th spell slot",
+						"5th spell slot",
+						"6th spell slot",
+						"7th spell slot",
+						"9th spell slot",
+						"9th spell slot",
 					],
 					"rows": [
 						[
-							3
-						],
-						[
-							3
-						],
-						[
-							3
-						],
-						[
-							4
-						],
-						[
-							4
-						],
-						[
-							4
-						],
-						[
-							4
-						],
-						[
-							4
-						],
-						[
-							4
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						],
-						[
-							5
-						]
-					]
-				},
-				{
-					"title": "Spell Slots per Spell Level",
-					"colLabels": [
-						"{@filter 1st|spells|level=1|class=Wizard}",
-						"{@filter 2nd|spells|level=2|class=Wizard}",
-						"{@filter 3rd|spells|level=3|class=Wizard}",
-						"{@filter 4th|spells|level=4|class=Wizard}",
-						"{@filter 5th|spells|level=5|class=Wizard}",
-						"{@filter 6th|spells|level=6|class=Wizard}",
-						"{@filter 7th|spells|level=7|class=Wizard}",
-						"{@filter 8th|spells|level=8|class=Wizard}",
-						"{@filter 9th|spells|level=9|class=Wizard}"
-					],
-					"rowsSpellProgression": [
-						[
+							3,
 							2,
 							0,
 							0,
@@ -3559,6 +3495,7 @@ const wizard = {
 						],
 						[
 							3,
+							3,
 							0,
 							0,
 							0,
@@ -3569,6 +3506,7 @@ const wizard = {
 							0
 						],
 						[
+							3,
 							4,
 							2,
 							0,
@@ -3581,6 +3519,7 @@ const wizard = {
 						],
 						[
 							4,
+							4,
 							3,
 							0,
 							0,
@@ -3591,6 +3530,7 @@ const wizard = {
 							0
 						],
 						[
+							4,
 							4,
 							3,
 							2,
@@ -3603,6 +3543,7 @@ const wizard = {
 						],
 						[
 							4,
+							4,
 							3,
 							3,
 							0,
@@ -3614,6 +3555,7 @@ const wizard = {
 						],
 						[
 							4,
+							4,
 							3,
 							3,
 							1,
@@ -3624,6 +3566,7 @@ const wizard = {
 							0
 						],
 						[
+							4,
 							4,
 							3,
 							3,
@@ -3636,6 +3579,7 @@ const wizard = {
 						],
 						[
 							4,
+							4,
 							3,
 							3,
 							3,
@@ -3646,6 +3590,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3657,6 +3602,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3668,6 +3614,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3679,6 +3626,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3690,6 +3638,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3701,6 +3650,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3712,6 +3662,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3723,6 +3674,7 @@ const wizard = {
 							0
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3734,6 +3686,7 @@ const wizard = {
 							1
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3745,6 +3698,7 @@ const wizard = {
 							1
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -3756,6 +3710,7 @@ const wizard = {
 							1
 						],
 						[
+							5,
 							4,
 							3,
 							3,
@@ -8388,9 +8343,10 @@ const wizard = {
 
 
 const classes = {
-    "meta": "",
+    "list": ["artificer", "barbarian", "wizard"],
+	"artificer": artificer['class'][0],
     "barbarian": barbarian['class'][0],
-    "wizard": wizard['class'][0],
+    "wizard": wizard['class'][0]
 }
 
 export {
