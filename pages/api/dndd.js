@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 import bodyParser from 'body-parser';
-import {classes} from '../../public/class.js';
+import {classes, classfeatures} from '../../public/class.js';
 
 const PORT = 8000;
 
@@ -32,6 +32,7 @@ app.get('/class', (req, res) => {
             type: Array,
             content: ['artificer', 'barbarian', "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", 'wizard']
         })
+        return
     }
     var theClass = classes[name];
     var legalselectors = {
@@ -76,20 +77,57 @@ app.get('/class', (req, res) => {
         multiclassRequirement: theClass['multiclassing']['requirements'],
         table: theClass['classTableGroups'][0]
     }
-    
-    if (sel == "help") {
+    if (sel == "all") {
+        res.json({
+            type: typeof (legalselectors),
+            content: (legalselectors)
+        })
+    } else if (sel == "help") {
         res.json({
             type: typeof Object.keys(legalselectors),
             content: Object.keys(legalselectors)
         })
     } else if (sel in legalselectors) {
         res.json({
-            type: typeof classes[name][sel],
-            content: classes[name][sel]
+            type: typeof legalselectors[sel],
+            content: legalselectors[sel]
         });
     } else {
         res.status(400).send({
             message: 'Selector Does not Exist'
+        });
+    }
+});
+
+app.get('/classfeature', (req, res) => {
+    const name = req.query.name;
+    console.log(name+" "+sel);
+    if (!(name in classes)) {
+        res.status(400).send({
+            message: 'Class Does not Exist'
+        });
+        return
+    }
+    if (name == 'list') {
+        res.json({
+            type: Array,
+            content: ['artificer', 'barbarian', "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", 'wizard']
+        })
+        return
+    }
+    if (name == "all") {
+        res.json({
+            type: typeof (classfeatures),
+            content: (classfeatures)
+        })
+    } else if (name in classfeatures) {
+        res.json({
+            type: typeof classfeatures[name],
+            content: classfeatures[name]
+        });
+    } else {
+        res.status(400).send({
+            message: 'Class Does not Exist'
         });
     }
 });

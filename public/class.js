@@ -8387,6 +8387,49 @@ for (var c in classes) {
 	}
 }
 
+const allowed_source = {'TCE':1, 'XGE':1, 'PHB':1, 'EGW':1, 'DMG':1, 'SCAG':1, 'FTD':1, 'VRGR':1}
+
+var tmpclassfeatures = {
+	"artificer": artificer['classFeature'],
+	"barbarian": barbarian['classFeature'],
+	"bard": bard['classFeature'],
+	"cleric": cleric['classFeature'],
+	"druid": druid['classFeature'],
+	"fighter": fighter['classFeature'],
+	"monk": monk['classFeature'],
+	"paladin": paladin['classFeature'],
+	"ranger": ranger['classFeature'],
+	"rogue": rogue['classFeature'],
+	"sorcerer": sorcerer['classFeature'],
+	"warlock": warlock['classFeature'],
+	"wizard": wizard['classFeature'],
+}
+
+const classfeatures = {
+	"artificer": [],
+	"barbarian": [],
+	"bard": [],
+	"cleric": [],
+	"druid": [],
+	"fighter": [],
+	"monk": [],
+	"paladin": [],
+	"ranger": [],
+	"rogue": [],
+	"sorcerer": [],
+	"warlock": [],
+	"wizard": [],
+}
+
+for (var cf in tmpclassfeatures) {
+	for (var i=0; i<tmpclassfeatures[cf].length; i++) {
+		if ((tmpclassfeatures[cf][i]['source'] in allowed_source) && (tmpclassfeatures[cf][i]['className'] == classes[cf]['name']+" (Revised)" || tmpclassfeatures[cf][i]['className'] == classes[cf]['name'])) {
+			classfeatures[cf].push(tmpclassfeatures[cf][i])
+		}
+	}
+}
+
 export {
-    classes
+    classes,
+	classfeatures
 }
