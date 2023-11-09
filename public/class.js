@@ -1,6 +1,9 @@
 import {artificer, fighter} from './artificer.js';
 import {bard, druid} from './bard.js';
 import {cleric} from './cleric.js';
+import {monk, paladin} from './monk.js';
+import { ranger } from './ranger.js';
+import {rogue, sorcerer, warlock} from './rogue.js';
 
 const barbarian = {
 	"class": [
@@ -8352,6 +8355,12 @@ const classes = {
 	"cleric": cleric['class'][0],
 	"druid": druid['class'][0],
 	"fighter": fighter['class'][0],
+	"monk": monk['class'][0],
+	"paladin": paladin['class'][0],
+	"ranger": ranger['class'][0],
+	"rogue": rogue['class'][0],
+	"sorcerer": sorcerer['class'][0],
+	"warlock": warlock['class'][0],
 	"wizard": wizard['class'][0],
 }
 

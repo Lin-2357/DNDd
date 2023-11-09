@@ -30,7 +30,7 @@ app.get('/class', (req, res) => {
     if (name == 'list') {
         res.json({
             type: Array,
-            content: ['artificer', 'barbarian', 'wizard']
+            content: ['artificer', 'barbarian', "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", 'wizard']
         })
     }
     var theClass = classes[name];
