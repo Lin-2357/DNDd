@@ -1,4 +1,6 @@
-import {artificer} from '/artificer.js';
+import {artificer, fighter} from './artificer.js';
+import {bard, druid} from './bard.js';
+import {cleric} from './cleric.js';
 
 const barbarian = {
 	"class": [
@@ -8345,8 +8347,35 @@ const wizard = {
 const classes = {
     "list": ["artificer", "barbarian", "wizard"],
 	"artificer": artificer['class'][0],
-    "barbarian": barbarian['class'][0],
-    "wizard": wizard['class'][0]
+	"barbarian": barbarian['class'][0],
+	"bard": bard['class'][0],
+	"cleric": cleric['class'][0],
+	"druid": druid['class'][0],
+	"fighter": fighter['class'][0],
+	"wizard": wizard['class'][0],
+}
+
+for (var c in classes) {
+	if (c != "list") {
+		if (!('classTableGroups' in classes[c])) {
+			classes[c]['classTableGroups'] = []
+		}
+		for (var i=1; i<classes[c]['classTableGroups'].length; i++) {
+			for (var j=1; j<classes[c]['classTableGroups'][i]['colLabels'].length; j++) {
+				classes[c]['classTableGroups'][0]['colLabels'].push(classes[c]['classTableGroups'][i]['colLabels'][j])
+			}
+			if ('rows' in classes[c]['classTableGroups'][i]) {
+				for (var j=1; j<classes[c]['classTableGroups'][i]['rows'].length; j++) {
+					classes[c]['classTableGroups'][0]['rows'].push(classes[c]['classTableGroups'][i]['rows'][j])
+				}	
+			}
+			if ('rowsSpellProgression' in classes[c]['classTableGroups'][i]) {
+				for (var j=1; j<classes[c]['classTableGroups'][i]['rowsSpellProgression'].length; j++) {
+					classes[c]['classTableGroups'][0]['rows'].push(classes[c]['classTableGroups'][i]['rowsSpellProgression'][j])
+				}
+			}
+		}
+	}
 }
 
 export {

@@ -25,6 +25,13 @@ app.get('/class', (req, res) => {
         res.status(400).send({
             message: 'Class Does not Exist'
         });
+        return
+    }
+    if (name == 'list') {
+        res.json({
+            type: Array,
+            content: ['artificer', 'barbarian', 'wizard']
+        })
     }
     var theClass = classes[name];
     var legalselectors = {
